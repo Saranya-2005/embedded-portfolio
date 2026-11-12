@@ -1,3 +1,7 @@
+
+const asset = (path: string) =>
+  `${import.meta.env.BASE_URL}${path}`;
+
 export const profile = {
   name: 'Saranya S',
   role: 'Embedded Systems Engineer',
@@ -23,27 +27,68 @@ export const about = [
 ];
 
 export const education = [
-  { degree: 'B.E. Mechatronics Engineering', school: 'Sri Krishna College of Engineering and Technology, Coimbatore', period: 'May 2026', score: 'CGPA 7.8' },
-  { degree: 'Higher Secondary – Bio-Maths', school: 'Government Girls Higher Secondary School, Chidambaram', period: '2022', score: '86.33%' },
+  {
+    degree: 'B.E. Mechatronics Engineering',
+    school: 'Sri Krishna College of Engineering and Technology, Coimbatore',
+    period: 'May 2026',
+    score: 'CGPA 7.8',
+  },
+  {
+    degree: 'Higher Secondary – Bio-Maths',
+    school: 'Government Girls Higher Secondary School, Chidambaram',
+    period: '2022',
+    score: '86.33%',
+  },
 ];
 
 export const skills = [
   { group: 'Languages', items: ['C', 'C++', 'Python', 'Java'] },
   { group: 'Microcontrollers', items: ['STM32', 'ESP32', 'Arduino', 'Raspberry Pi'] },
-  { group: 'Embedded Core', items: ['GPIO / ADC / PWM', 'Timers & Interrupts', 'Sensor Interfacing', 'Motor & Servo Control', 'Real-time Data Acquisition'] },
+  {
+    group: 'Embedded Core',
+    items: [
+      'GPIO / ADC / PWM',
+      'Timers & Interrupts',
+      'Sensor Interfacing',
+      'Motor & Servo Control',
+      'Real-time Data Acquisition',
+    ],
+  },
   { group: 'Protocols', items: ['UART', 'I²C', 'SPI', 'Wi-Fi', 'MCU-to-MCU'] },
-  { group: 'Tools', items: ['STM32CubeIDE', 'Arduino IDE', 'VS Code', 'Git & GitHub', 'Serial Monitor'] },
+  {
+    group: 'Tools',
+    items: ['STM32CubeIDE', 'Arduino IDE', 'VS Code', 'Git & GitHub', 'Serial Monitor'],
+  },
   { group: 'OS & Frameworks', items: ['Linux', 'ROS 2', 'RTOS Fundamentals'] },
-  { group: 'Test & Debug', items: ['Oscilloscope', 'Logic Analyzer', 'Multimeter', 'Hardware Debugging', 'Circuit Interfacing'] },
-  { group: 'IoT & Integration', items: ['IoT', 'GPS Integration', 'Mobile App Integration', 'Wireless Comms'] },
-  { group: 'Robotics & CAD', items: ['Mobile Robotics', 'Manipulators', 'SolidWorks', 'Creo', 'AutoCAD', 'Mastercam'] },
+  {
+    group: 'Test & Debug',
+    items: ['Oscilloscope', 'Logic Analyzer', 'Multimeter', 'Hardware Debugging', 'Circuit Interfacing'],
+  },
+  {
+    group: 'IoT & Integration',
+    items: ['IoT', 'GPS Integration', 'Mobile App Integration', 'Wireless Comms'],
+  },
+  {
+    group: 'Robotics & CAD',
+    items: ['Mobile Robotics', 'Manipulators', 'SolidWorks', 'Creo', 'AutoCAD', 'Mastercam'],
+  },
 ];
 
-// kind: 'phone' = app screenshot, 'diagram' = white-background render/diagram (recoloured to dark), 'photo' = real photo
-export type Shot = { src: string; caption: string; kind: 'phone' | 'diagram' | 'photo' | 'cutout' };
+// Image types used in project galleries
+export type Shot = {
+  src: string;
+  caption: string;
+  kind: 'phone' | 'diagram' | 'photo' | 'cutout';
+};
 
 export const projects: {
-  title: string; tag: string; desc: string; points: string[]; flow: string[]; stack: string[]; images: Shot[];
+  title: string;
+  tag: string;
+  desc: string;
+  points: string[];
+  flow: string[];
+  stack: string[];
+  images: Shot[];
 }[] = [
   {
     title: 'AI-Integrated Real-Time Vehicle Monitoring System',
@@ -61,13 +106,34 @@ export const projects: {
     flow: ['Motor & Battery', 'STM32', 'ESP32', 'Mobile App', 'AI Analysis'],
     stack: ['STM32', 'ESP32', 'C/C++', 'STM32CubeIDE', 'GPS', 'Wi-Fi', 'IoT', 'AI'],
     images: [
-      { src: '/img/vm-dashboard.jpg', caption: 'Battery & motor telemetry dashboard', kind: 'phone' },
-      { src: '/img/vm-analysis.jpg', caption: 'Voltage trend & battery health analysis', kind: 'phone' },
-      { src: '/img/vm-gps.jpg', caption: 'Live GPS vehicle tracking', kind: 'phone' },
-      { src: '/img/vm-transmission.jpg', caption: 'Transmission / drivetrain reference', kind: 'phone' },
-      { src: '/img/vm-profile.jpg', caption: 'Astra app profile screen', kind: 'phone' },
+      {
+        src: asset('img/vm-dashboard.jpg'),
+        caption: 'Battery & motor telemetry dashboard',
+        kind: 'phone',
+      },
+      {
+        src: asset('img/vm-analysis.jpg'),
+        caption: 'Voltage trend & battery health analysis',
+        kind: 'phone',
+      },
+      {
+        src: asset('img/vm-gps.jpg'),
+        caption: 'Live GPS vehicle tracking',
+        kind: 'phone',
+      },
+      {
+        src: asset('img/vm-transmission.jpg'),
+        caption: 'Transmission / drivetrain reference',
+        kind: 'phone',
+      },
+      {
+        src: asset('img/vm-profile.jpg'),
+        caption: 'Astra app profile screen',
+        kind: 'phone',
+      },
     ],
   },
+
   {
     title: 'Morphobot M4 – Dual-Mode Disaster Rescue Robot',
     tag: 'Robotics · ROS 2',
@@ -81,10 +147,19 @@ export const projects: {
     flow: ['Aerial Mode', 'Wheeled Mode', 'Hybrid Ops', 'Assessment'],
     stack: ['ROS 2', 'Robotics', 'Mechanical Design', 'Autonomous Systems'],
     images: [
-      { src: '/img/morpho-flight.png', caption: 'CAD render – flight configuration', kind: 'cutout' },
-      { src: '/img/morpho-wheeled.png', caption: 'CAD render – wheeled configuration', kind: 'cutout' },
+      {
+        src: asset('img/morpho-flight.png'),
+        caption: 'CAD render – flight configuration',
+        kind: 'cutout',
+      },
+      {
+        src: asset('img/morpho-wheeled.png'),
+        caption: 'CAD render – wheeled configuration',
+        kind: 'cutout',
+      },
     ],
   },
+
   {
     title: 'Blind-Spot Detection & Driver Alert System',
     tag: 'Vehicle Safety',
@@ -98,10 +173,19 @@ export const projects: {
     flow: ['Ultrasonic Sensors', 'Arduino Uno', 'LED Alert'],
     stack: ['Arduino', 'Ultrasonic Sensors', 'Sensor Interfacing', 'LEDs'],
     images: [
-      { src: '/img/bsd-prototype.jpg', caption: 'Blind-spot detection prototype', kind: 'photo' },
-      { src: '/img/bsd-flow.jpg', caption: 'System block diagram', kind: 'diagram' },
+      {
+        src: asset('img/bsd-prototype.jpg'),
+        caption: 'Blind-spot detection prototype',
+        kind: 'photo',
+      },
+      {
+        src: asset('img/bsd-flow.jpg'),
+        caption: 'System block diagram',
+        kind: 'diagram',
+      },
     ],
   },
+
   {
     title: 'Wearable Driver Health Monitoring System',
     tag: 'Wearables · Racing',
@@ -114,10 +198,19 @@ export const projects: {
     flow: ['Health Sensors', 'Arduino Nano', 'Dashboard'],
     stack: ['Arduino Nano', 'Heart-rate Sensor', 'MAX30100', 'DHT11'],
     images: [
-      { src: '/img/health-prototype.jpg', caption: 'Health-monitoring prototype', kind: 'photo' },
-      { src: '/img/health-flow.jpg', caption: 'System block diagram', kind: 'diagram' },
+      {
+        src: asset('img/health-prototype.jpg'),
+        caption: 'Health-monitoring prototype',
+        kind: 'photo',
+      },
+      {
+        src: asset('img/health-flow.jpg'),
+        caption: 'System block diagram',
+        kind: 'diagram',
+      },
     ],
   },
+
   {
     title: 'PickBot – Design & Fabrication of a Mobile Pick-and-Place Robot',
     tag: 'Robotics · Raspberry Pi',
@@ -131,25 +224,70 @@ export const projects: {
       'Delivered Aug–Oct 2024: calculations, arm design, fabrication, assembly, programming and testing.',
     ],
     flow: ['Mobile / PC', 'Web Interface', 'Raspberry Pi 3B+', 'Motor + Servo Drivers', 'Robot Motion'],
-    stack: ['Raspberry Pi 3B+', 'Servo Control', 'Motor Driver', 'Camera', 'Web Interface', 'Mechanical Design'],
+    stack: [
+      'Raspberry Pi 3B+',
+      'Servo Control',
+      'Motor Driver',
+      'Camera',
+      'Web Interface',
+      'Mechanical Design',
+    ],
     images: [
-      { src: '/img/pickbot.png', caption: 'PickBot – mecanum base with robotic arm', kind: 'cutout' },
-      { src: '/img/pickbot-flow.jpg', caption: 'System block diagram', kind: 'diagram' },
+      {
+        src: asset('img/pickbot.png'),
+        caption: 'PickBot – mecanum base with robotic arm',
+        kind: 'cutout',
+      },
+      {
+        src: asset('img/pickbot-flow.jpg'),
+        caption: 'System block diagram',
+        kind: 'diagram',
+      },
     ],
   },
 ];
 
 export const journey = [
-  { title: 'Microcontroller Programming', text: 'How STM32, ESP32 and Arduino are used for sensor interfacing, data acquisition and hardware communication.' },
-  { title: 'STM32 Development', text: 'Project-based work with STM32CubeIDE, collecting and processing motor and battery data.' },
-  { title: 'ESP32 & Wireless', text: 'ESP32 talking to other MCUs and pushing hardware data to mobile apps wirelessly.' },
-  { title: 'GPS Integration', text: 'Using GPS modules for location data and live vehicle tracking.' },
-  { title: 'Sensor Interfacing', text: 'Ultrasonic sensors for nearby-vehicle detection and sensor-based monitoring.' },
-  { title: 'Hardware–Software Integration', text: 'Moving real-time data from embedded hardware into application interfaces.' },
-  { title: 'Data Monitoring & Analysis', text: 'Real-time and historical analysis of motor and battery performance.' },
-  { title: 'AI-Assisted Apps', text: 'Using vehicle data to power AI answers inside a monitoring app.' },
-  { title: 'Wearable Technology', text: 'How wearables collect health data and communicate with apps.' },
-  { title: 'Robotics & Control', text: 'Wireless control interfaces, mobile robotics and ROS 2 through projects and internship.' },
+  {
+    title: 'Microcontroller Programming',
+    text: 'How STM32, ESP32 and Arduino are used for sensor interfacing, data acquisition and hardware communication.',
+  },
+  {
+    title: 'STM32 Development',
+    text: 'Project-based work with STM32CubeIDE, collecting and processing motor and battery data.',
+  },
+  {
+    title: 'ESP32 & Wireless',
+    text: 'ESP32 talking to other MCUs and pushing hardware data to mobile apps wirelessly.',
+  },
+  {
+    title: 'GPS Integration',
+    text: 'Using GPS modules for location data and live vehicle tracking.',
+  },
+  {
+    title: 'Sensor Interfacing',
+    text: 'Ultrasonic sensors for nearby-vehicle detection and sensor-based monitoring.',
+  },
+  {
+    title: 'Hardware–Software Integration',
+    text: 'Moving real-time data from embedded hardware into application interfaces.',
+  },
+  {
+    title: 'Data Monitoring & Analysis',
+    text: 'Real-time and historical analysis of motor and battery performance.',
+  },
+  {
+    title: 'AI-Assisted Apps',
+    text: 'Using vehicle data to power AI answers inside a monitoring app.',
+  },
+  {
+    title: 'Wearable Technology',
+    text: 'How wearables collect health data and communicate with apps.',
+  },
+  {
+    title: 'Robotics & Control',
+    text: 'Wireless control interfaces, mobile robotics and ROS 2 through projects and internship.',
+  },
 ];
 
 export const experience = [
@@ -157,13 +295,18 @@ export const experience = [
     period: 'Feb 2026 — Present',
     role: 'Design Engineer',
     company: 'Rainer Engineering · Coimbatore',
-    points: ['Mechanical design, fixture design and assembly engineering.', 'CNC/CAM programming with Mastercam as a supporting responsibility.'],
+    points: [
+      'Mechanical design, fixture design and assembly engineering.',
+      'CNC/CAM programming with Mastercam as a supporting responsibility.',
+    ],
   },
   {
     period: 'Aug 2025 — Nov 2025',
     role: 'Mobile Robotics Intern',
     company: 'Maxbyte Technologies',
-    points: ['Three-month internship on mobile robotics and Autonomous Mobile Robot (AMR) projects.'],
+    points: [
+      'Three-month internship on mobile robotics and Autonomous Mobile Robot (AMR) projects.',
+    ],
   },
 ];
 
@@ -171,14 +314,38 @@ export const leadership = {
   title: 'Innovation Team Captain – Team Astra',
   period: 'Solar Kart · 2024–2025',
   text: 'Led the innovation team and contributed to vehicle systems including real-time monitoring, blind-spot detection and driver health monitoring.',
-  image: '/img/team-astra.jpg',
+  image: asset('img/team-astra.jpg'),
 };
 
 export const achievements = [
-  { title: 'First Prize – Innovation', event: 'SEVC 2023', text: 'Recognised for innovation in the solar vehicle competition.' },
-  { title: 'First Prize – Innovation', event: 'SEVC 2024', text: 'Recognised for innovation in the solar vehicle competition.' },
-  { title: 'Overall Runner-Up', event: 'SEVC', text: 'Team recognition for overall performance.' },
-  { title: 'Competition Recognition', event: 'BSVC 2024', text: 'Innovation, design evaluation and autocross.' },
-  { title: 'Smart India Hackathon', event: 'SIH 2024', text: 'Hardware category with a drone technology concept.' },
-  { title: 'UAV Workshop · ROS Uncovered', event: 'Workshops 2024', text: 'Hands-on UAV technology and Robot Operating System.' },
+  {
+    title: 'First Prize – Innovation',
+    event: 'SEVC 2023',
+    text: 'Recognised for innovation in the solar vehicle competition.',
+  },
+  {
+    title: 'First Prize – Innovation',
+    event: 'SEVC 2024',
+    text: 'Recognised for innovation in the solar vehicle competition.',
+  },
+  {
+    title: 'Overall Runner-Up',
+    event: 'SEVC',
+    text: 'Team recognition for overall performance.',
+  },
+  {
+    title: 'Competition Recognition',
+    event: 'BSVC 2024',
+    text: 'Innovation, design evaluation and autocross.',
+  },
+  {
+    title: 'Smart India Hackathon',
+    event: 'SIH 2024',
+    text: 'Hardware category with a drone technology concept.',
+  },
+  {
+    title: 'UAV Workshop · ROS Uncovered',
+    event: 'Workshops 2024',
+    text: 'Hands-on UAV technology and Robot Operating System.',
+  },
 ];
